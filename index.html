@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/barckground.css">
+    <link rel="stylesheet" href="./css/stars.css" >
+    <link rel="stylesheet" href="./css/loader.css">
+    <link rel="stylesheet" href="./css/encryptor.css">
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="./js/caesar-cypher.js" ></script>
+
+    <!-- responsive -->
+    <link rel="stylesheet" href="./css/responsive.css">
+
+
+
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="blocks">
+            <div class="block "></div>
+        </div>
+
+
+        <div>
+            <img src="sources/northenligths.png" alt="aurora" id="aurora">
+            <img src="sources/northenligths.png" alt="" id="northenligths">
+        </div>
+        <div class="encrypter-elements">
+            <img src="sources/TablerPrompt 1.png" alt="encrypter" id="image-prompt" class="prompt">
+            <!--<img src="sources/Logo.png" alt="logo-alura" id="logo-alura" > -->
+
+            <div class="title">
+                <p>encryptor</p>
+
+                </div>
+
+            <div class="encryptor-text">
+                <textarea name="encryptor-text" id="encryptor-text" placeholder="Enter text here..."></textarea>
+                </div>
+
+            <div class="advice">
+                <img src="sources/GridiconsNotice.svg" alt="icon" id="notice">
+                <p>Only lowercase letters and no accents.</p>
+            </div>
+
+            <div class="buttons">
+                <button id="encrypt-button" onclick="encrypt()">encode</button>
+                <button id="decrypt-button" onclick="decrypt()">decode</button>
+                </div>
+            
+            <div class="output">
+                <textarea name="output" id="output"></textarea>
+                    <img src="sources/elmu.png" alt="encrypter" id="image-output" class="m-n-found">
+                    <h1 class="m-n-found">No message was found</h1>
+                    <p class="m-n-found">Enter the text that you want to encode or decode.</p>
+                <button id="copy-button" onclick="copy()">copy</button>
+                </div>
+
+        </div>
+
+
+        <div class="bubbles">
+            <span style="--i:1"></span>
+            <span style="--i:6"></span>
+            <span style="--i:4"></span>
+            <span style="--i:10"></span>
+            <span style="--i:14"></span>
+            <span style="--i:9"></span>
+            <span style="--i:18"></span>
+            <span style="--i:27"></span>
+            <span style="--i:19"></span>
+            <span style="--i:20"></span>
+            <span style="--i:8"></span>
+            <span style="--i:25"></span>
+            <span style="--i:21"></span>
+            <span style="--i:15"></span>
+            <span style="--i:2"></span>
+            <span style="--i:13"></span>
+            <span style="--i:26"></span>
+            <span style="--i:3"></span>
+            <span style="--i:28"></span>
+            <span style="--i:11"></span>
+            <span style="--i:12"></span>
+            <span style="--i:24"></span>
+            <span style="--i:7"></span>
+            <span style="--i:22"></span>
+            <span style="--i:23"></span>
+            <span style="--i:17"></span>
+            <span style="--i:16"></span>
+            <span style="--i:29"></span>
+            <span style="--i:30"></span>
+            <span style="--i:5"></span>
+            <span style="--i:1"></span>
+            <span style="--i:6"></span>
+            <span style="--i:4"></span>
+            <span style="--i:10"></span>
+            <span style="--i:14"></span>
+            <span style="--i:9"></span>
+            <span style="--i:18"></span>
+            <span style="--i:27"></span>
+            <span style="--i:19"></span>
+            <span style="--i:20"></span>
+            <span style="--i:8"></span>
+            <span style="--i:25"></span>
+            <span style="--i:21"></span>
+            <span style="--i:15"></span>
+            <span style="--i:2"></span>
+            <span style="--i:13"></span>
+            <span style="--i:26"></span>
+            <span style="--i:3"></span>
+            <span style="--i:28"></span>
+            <span style="--i:11"></span>
+            <span style="--i:12"></span>
+            <span style="--i:24"></span>
+            <span style="--i:7"></span>
+            <span style="--i:22"></span>
+            <span style="--i:23"></span>
+            <span style="--i:17"></span>
+            <span style="--i:16"></span>
+            <span style="--i:29"></span>
+            <span style="--i:30"></span>
+            <span style="--i:5"></span>
+            <span style="--i:1"></span>
+            <span style="--i:6"></span>
+            <span style="--i:4"></span>
+            <span style="--i:10"></span>
+            <span style="--i:14"></span>
+            <span style="--i:9"></span>
+            <span style="--i:18"></span>
+            <span style="--i:27"></span>
+            <span style="--i:19"></span>
+            <span style="--i:20"></span>
+            <span style="--i:8"></span>
+            <span style="--i:25"></span>
+            <span style="--i:21"></span>
+            <span style="--i:15"></span>
+            <span style="--i:2"></span>
+            <span style="--i:13"></span>
+            <span style="--i:26"></span>
+            <span style="--i:3"></span>
+            <span style="--i:28"></span>
+            <span style="--i:11"></span>
+            <span style="--i:12"></span>
+            <span style="--i:24"></span>
+            <span style="--i:7"></span>
+            <span style="--i:22"></span>
+            <span style="--i:23"></span>
+            <span style="--i:17"></span>
+            <span style="--i:16"></span>
+            <span style="--i:29"></span>
+            <span style="--i:30"></span>
+            <span style="--i:5"></span>  
+        </div>
+
+        <div class="stars-container">
+            
+        <section id="Stars-Twinkling">
+        </section>
+        </div>
+
+
+    </div>
+
+
+    <script src="./js/loader_animate.js"></script>
+
+    <script src="./js/stars.js"></script>
+
+    
+    
+    
+</body>
+</html>

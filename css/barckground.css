@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    background: url(../sources/stardust-1920x1080.png);
+    z-index: -100;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+
+}
+
+.bubbles {
+    position: absolute;
+    top: 0;
+    display: flex;
+    height: 1000px;
+    width: 100%;
+}
+
+.bubbles span {
+    position: relative;
+    width: 0.10px;
+    height: 0.10px;
+    background: #e9e6cd;
+    margin: 0 10px;
+    border-radius: 50%;
+   /* box-shadow: 0 0 0 10px #ffffff00,
+    0 0px 10px 20px #ffffff28;*/
+    animation: animate -20ms linear infinite;
+    animation-duration: calc(200s/ var(--i));
+    z-index: -99;
+}
+
+.bubbles span:nth-child(even) {
+    background: #e9e6cd;
+    /*box-shadow: 0 0 0 10px #0897971e,
+    0 0 10px 20px #0897974f;*/
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(200vh) scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(100vh) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) scale(1);
+    }
+}

@@ -1,0 +1,203 @@
+
+@media only screen and (max-width: 1440px){
+
+  .output h1, .output p {
+    font-size: 1rem;
+
+  }
+
+}
+
+@media only screen and (max-width: 1246px){
+
+  .output {
+    min-height: 80%;
+    width: 25%;
+    right: 15%;
+  }
+
+
+}
+
+@media only screen and (max-width: 886px){
+
+  .output {
+    top:20%;
+    min-height: 30%;
+    width: 28%;
+    right: 12%;
+  }
+}
+
+@media only screen and (max-width: 768px){
+   .container {
+    overflow-y: auto;
+
+}
+
+  .container{
+    max-height: 1000px;
+
+    align-items: center;
+  }
+
+  .encryptor-text {
+    width: 60%;
+
+  }
+
+  #northenligths {
+    /* display: none; */
+    position: fixed;
+  }
+
+  #aurora {
+    display: none;
+  }
+
+  .buttons {
+    width: 69%;
+    left: 20%;
+  }
+
+  .advice {
+    width: 69%;
+  }
+
+  .output {
+    height: 20%;
+    top: 82%;
+    right: 0%;
+    left: 20%;
+    width: 60%;
+    margin-bottom: 200px;
+  }
+
+  .output textarea {
+    height: 67%;
+  }
+
+
+  .output img {
+    display: none;
+  }
+
+  .output button {
+    height: 21%;
+  }
+
+  .output h1 {
+    position: absolute;
+    font-size: 1.2rem;
+    top: 18%;
+  }
+
+  .output p {
+    position: absolute;
+    font-size: 1rem;
+    top: 50%;
+  }
+
+  .block {
+    height: 1000px;
+  }
+}
+
+
+@media only screen and (max-width: 425px){
+  #northenligths {
+    display: none;
+  }
+
+  .encryptor-text{
+    width: 80%;
+    left: 10%;
+  }
+
+  .advice {
+    top: 62%;
+    width: 80%;
+    left: 10%;
+  }
+
+  .buttons {
+    top: 67%;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    height: 20%;
+    width: 80%;
+    left: 10%;
+    align-content: center;
+
+    
+  }
+
+  .buttons button {
+    border-radius: 15px;
+  }
+
+  #decrypt-button {
+    margin-top: 10px;
+    margin-left: 0px;
+  }
+
+  .buttons button {
+    width: 100%;
+    height: 30%;
+    font-size: 0.8rem;
+  }
+
+  .output p {
+    font-size: 0.9rem;
+    left: 4px;
+    top: 58%;
+  }
+
+  .output {
+    top: 90%;
+    width: 80%;
+    left: 10%;
+  }
+
+  .output h1 {
+    font-size: 0.9rem;
+  }
+
+  .output textarea {
+    font-size: 1rem;
+
+  }
+  
+}
+
+
+@media only screen and (max-width: 375px){
+  .encryptor-text{
+    min-height: 40%;
+
+    
+  }
+
+  .encryptor-text textarea{
+    font-size: 1rem;
+  }
+
+  .advice{
+    top: 78%;
+  }
+
+  .buttons{
+    top: 81%;
+  }
+
+ .output {
+  top: 101%;
+  min-height: 25%;
+  margin-bottom: 10px;
+ }
+  
+ .output button {
+  height: 10%;
+ }
+}

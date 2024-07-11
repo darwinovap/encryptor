@@ -1,0 +1,22 @@
+@font-face {
+    font-family: "Altissimo";
+    src: url(sources/fonts/FontsFree-Net-aa4-4.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "Pasadena";
+    src: url(sources/fonts/Pasadena-Serial-Regular_DB.ttf) format("truetype");
+}
+
+.blocks {
+    width: 100%;
+    height: 100vh;
+}
+
+.block {
+    position: absolute;
+    width: 100%;
+    height: 1151px;
+    z-index: 10;
+    background-image: radial-gradient(circle, #3535354d 20%, rgb(0, 0, 0), #222222 300%);
+}
