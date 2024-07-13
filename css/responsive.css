@@ -173,8 +173,20 @@
 
 
 @media only screen and (max-width: 375px){
+
+  #image-prompt {
+    left: 10%;
+    top: 5%;
+  }
+
+  .title {
+    left: 10%;
+    top:15%;
+  }
+
   .encryptor-text{
     min-height: 40%;
+    top: 25%;
 
     
   }
@@ -184,15 +196,15 @@
   }
 
   .advice{
-    top: 78%;
+    top: 68%;
   }
 
   .buttons{
-    top: 81%;
+    top: 73%;
   }
 
  .output {
-  top: 101%;
+  top: 93%;
   min-height: 25%;
   margin-bottom: 10px;
  }
