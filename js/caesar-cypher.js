@@ -1,7 +1,10 @@
-const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-
-
-const numberToShift = 5
+const encryptionKeys = {
+    'e': 'enter',
+    'i': 'imes',
+    'a': 'ai',
+    'o': 'ober',
+    'u': 'ufat'
+};
 
 function encrypt() {
     let word = document.getElementById("encryptor-text").value;
@@ -9,120 +12,107 @@ function encrypt() {
     let outputText = document.getElementById("output");
     let copyButton = document.getElementById("copy-button");
 
-    // Function to display text with typewriter effect
+    if (!isValidInput(word)) {
+        updateVisibility("");
+        return;
+    }
+
     function typeWriter(text, i) {
         if (i < text.length) {
             let char = text.charAt(i);
-            if (alphabet.includes(char)) {
-                let index = alphabet.indexOf(char);
-                let newIndex = (index + numberToShift) % 26;
-                finalText += alphabet[newIndex];
+            if (char in encryptionKeys) {
+                finalText += encryptionKeys[char];
             } else {
                 finalText += char;
             }
             outputText.innerHTML = finalText;
             setTimeout(function() {
                 typeWriter(text, i + 1);
-            }, 5); // Typing speed (milliseconds)
+            }, 5);
         } else {
-            // Typing complete, show copy button and set final text
             outputText.style.visibility = "visible";
             copyButton.style.visibility = "visible";
             finalText = outputText.innerHTML;
         }
     }
 
-    // Clear previous content
     outputText.innerHTML = '';
-
-    // Start typewriter effect
     typeWriter(word, 0);
 
-    // Handle visibility based on finalText
-    if (finalText === "") {
-        outputText.style.visibility = "hidden";
-        copyButton.style.visibility = "hidden";
-        let image = document.getElementsByClassName("m-n-found")[0];
-        image.style.visibility = "visible";
-        let messageNotFound = document.getElementsByClassName("m-n-found")[1];
-        messageNotFound.style.visibility = "visible";
-        let descriptionp = document.getElementsByClassName("m-n-found")[2];
-        descriptionp.style.visibility = "visible";
-    } else {
-        outputText.style.visibility = "visible";
-        copyButton.style.visibility = "visible";
-        let image = document.getElementsByClassName("m-n-found")[0];
-        image.style.visibility = "hidden";
-        let messageNotFound = document.getElementsByClassName("m-n-found")[1];
-        messageNotFound.style.visibility = "hidden";
-        let descriptionp = document.getElementsByClassName("m-n-found")[2];
-        descriptionp.style.visibility = "hidden";
-    }
+    updateVisibility(finalText);
 }
-
-
-
 
 function decrypt() {
     let word = document.getElementById("encryptor-text").value;
-    let finalTextD = '';
+    let finalTextD = word;
     let outputText = document.getElementById("output");
     let copyButton = document.getElementById("copy-button");
 
-    // Function to display text with typewriter effect
+    if (!isValidInput(word)) {
+        updateVisibility("");
+        return;
+    }
+
+    for (let key in encryptionKeys) {
+        let value = encryptionKeys[key];
+        finalTextD = finalTextD.split(value).join(key);
+    }
+
     function typeWriter(text, i) {
         if (i < text.length) {
-            let charD = text.charAt(i);
-            if (alphabet.includes(charD)) {
-                let indexD = alphabet.indexOf(charD);
-                let newIndexD = (indexD - numberToShift + alphabet.length) % alphabet.length;
-                finalTextD += alphabet[newIndexD];
-            } else {
-                finalTextD += charD;
-            }
-            outputText.innerHTML = finalTextD;
+            outputText.innerHTML = text.substring(0, i + 1);
             setTimeout(function() {
                 typeWriter(text, i + 1);
-            }, 5); // Typing speed (milliseconds)
+            }, 5);
         } else {
-            // Typing complete, show copy button and set final text
             outputText.style.visibility = "visible";
             copyButton.style.visibility = "visible";
-            finalTextD = outputText.innerHTML;
         }
     }
 
-    // Clear previous content
     outputText.innerHTML = '';
+    typeWriter(finalTextD, 0);
 
-    // Start typewriter effect
-    typeWriter(word, 0);
+    updateVisibility(finalTextD);
+}
 
-    // Handle visibility based on finalTextD
-    if (finalTextD === "") {
+function isValidInput(text) {
+    if (/[A-Z]/.test(text)) {
+        alert("Error: Uppercase letters are not allowed.");
+        return false;
+    }
+    if (/[áéíóúÁÉÍÓÚñÑ]/.test(text)) {
+        alert("Error: Accented letters are not allowed.");
+        return false;
+    }
+    if (/[^a-z\s]/.test(text)) {
+        alert("Error: Special characters are not allowed.");
+        return false;
+    }
+    return true;
+}
+
+function updateVisibility(text) {
+    let outputText = document.getElementById("output");
+    let copyButton = document.getElementById("copy-button");
+    let elements = document.getElementsByClassName("m-n-found");
+
+    if (text === "") {
         outputText.style.visibility = "hidden";
         copyButton.style.visibility = "hidden";
-        let image = document.getElementsByClassName("m-n-found")[0];
-        image.style.visibility = "visible";
-        let messageNotFound = document.getElementsByClassName("m-n-found")[1];
-        messageNotFound.style.visibility = "visible";
-        let descriptionp = document.getElementsByClassName("m-n-found")[2];
-        descriptionp.style.visibility = "visible";
+        for (let el of elements) {
+            el.style.visibility = "visible";
+        }
     } else {
         outputText.style.visibility = "visible";
         copyButton.style.visibility = "visible";
-        let image = document.getElementsByClassName("m-n-found")[0];
-        image.style.visibility = "hidden";
-        let messageNotFound = document.getElementsByClassName("m-n-found")[1];
-        messageNotFound.style.visibility = "hidden";
-        let descriptionp = document.getElementsByClassName("m-n-found")[2];
-        descriptionp.style.visibility = "hidden";
+        for (let el of elements) {
+            el.style.visibility = "hidden";
+        }
     }
 }
 
-
 function copy() {
-
     var textarea = document.getElementById("output");
     textarea.select();
     textarea.setSelectionRange(0, 99999);
@@ -130,16 +120,16 @@ function copy() {
     textarea.setSelectionRange(0, 0);
 
     var popup = document.getElementById('popupMessage');
-    popup.style.display = 'block'; // Show the popup initially
+    popup.style.display = 'block';
     setTimeout(function() {
-        popup.style.opacity = '1'; // Fade in the popup
+        popup.style.opacity = '1';
     }, 100);
 
     setTimeout(function() {
-        popup.style.opacity = '0'; // Fade out the popup
+        popup.style.opacity = '0';
     }, 1500);
 
     setTimeout(function() {
-        popup.style.display = 'none'; // Hide the popup after fading out
+        popup.style.display = 'none';
     }, 2000);
-};
+}
